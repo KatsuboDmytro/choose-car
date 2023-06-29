@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-export const CarList = () => {
+export const CarList = ({ car }) => {
   return (
     <tr>
-      <td>Lexus</td>
-      <td>RX</td>
-      <td>KNDMG4C79C6816543</td>
-      <td>Aquamarine</td>
-      <td>2007</td>
-      <td>$1766.14</td>
-      <td>false</td>
+      <td>{car.car}</td>
+      <td>{car.car_model}</td>
+      <td>{car.car_vin}</td>
+      <td>{car.car_color}</td>
+      <td>{car.car_model_year}</td>
+      <td>{car.price}</td>
+      <td>{car.availability}</td>
       <td>
         <div className="dropdown">
           <select>
@@ -20,5 +20,5 @@ export const CarList = () => {
         </div>
       </td>
     </tr>
-  )
-}
+  );
+};

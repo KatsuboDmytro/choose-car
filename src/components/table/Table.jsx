@@ -1,9 +1,12 @@
-import React from 'react'
-
-import { CarList } from '../carList/CarList'
-import './table.scss'
+import React, { useContext } from 'react';
+import { HomeContext } from '../../pages';
+import { CarList } from '../carList/CarList';
+import './table.scss';
 
 export const Table = () => {
+  const cars = useContext(HomeContext);
+  console.log(cars);
+
   return (
     <table className="styled-table">
       <thead>
@@ -20,14 +23,10 @@ export const Table = () => {
       </thead>
 
       <tbody>
-        <CarList />
-        <CarList />
-        <CarList />
-        <CarList />
-        <CarList />
-        <CarList />
-        <CarList />        
+         {
+            cars.map((car) => <CarList key={car.id} car={car} />)
+  }
       </tbody>
     </table>
-  )
-}
+  );
+};

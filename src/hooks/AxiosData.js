@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 export const AxiosData = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch("https://www.balldontlie.io/api/v1/teams")
-      .then((response) => response.json())
-      .then((response) => setCars(response.data));
+    fetch('https://myfakeapi.com/api/cars/')
+      .then((res) => res.json())
+      .then((data) => setCars(data.cars))
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
-  return { cars };
-}
+  return cars;
+};
