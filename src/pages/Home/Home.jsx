@@ -1,5 +1,5 @@
 import { useEffect, useState, createContext, useCallback } from 'react'
-import { Find, Table, AddNewCar } from '../../components/index'
+import { Table, AddNewCar } from '../../components/index'
 import './home.scss'
 
 export const HomeContext = createContext([]);
@@ -22,7 +22,6 @@ export const Home = () => {
 
   return (
     <HomeContext.Provider value={cars}>
-      <Find />
       <Table />
       <AddNewCar />
     </HomeContext.Provider>
