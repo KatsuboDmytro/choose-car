@@ -1,16 +1,15 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Home, Edit, NewCar } from './pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home, NewCar } from './pages';
 
 function App() {
   return (
-    <HashRouter hashType="hashbang">
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/edit" element={<Edit />} />
-        <Route path="/new" element={<NewCar />} />
+        <Route path="/choose-car/" element={<Home />} />
+        <Route path="/choose-car/new" element={<NewCar />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

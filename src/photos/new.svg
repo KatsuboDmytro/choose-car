@@ -1,10 +1,10 @@
-<svg width="206" height="206" viewBox="0 0 206 206" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="176" height="176" viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_442_9)">
-<circle cx="103" cy="103" r="40" fill="white"/>
+<circle cx="88" cy="88" r="25" fill="white"/>
 </g>
-<path d="M102.036 80.6001V124.6M80.6001 102.886H124.6" stroke="#009879" stroke-width="13"/>
+<path d="M87.3974 74V101.5M74 87.9286H101.5" stroke="#009879" stroke-width="7"/>
 <defs>
-<filter id="filter0_d_442_9" x="0" y="0" width="206" height="206" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_442_9" x="0" y="0" width="176" height="176" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
