@@ -1,16 +1,16 @@
 import { useContext, useState } from 'react';
 
+import { useNavigate } from 'react-router';
 import { ActiveContext } from '../table/Table';
 import available from '../../photos/true.svg';
 import unAvailable from '../../photos/false.svg';
 
 export const CarList = ({ car }) => {
-  const [active, setActive] = useContext(ActiveContext);
-  const [selectedCar, setSelectedCar] = useState({});
+  const navigate = useNavigate();
 
   const changeCondition = (event) => {
     if(event.target.value === 'edit'){
-      setActive(!active);
+      navigate(`/choose-car/${car.id}`);
     }
   };
 
