@@ -1,15 +1,32 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
+import axios from 'axios';
 
-import { ActiveContext } from '../table/Table';
 import back from '../../photos/back.svg'
 import './edit.scss'
-import axios from 'axios';
-import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 
 export const Edit = () => {
   const {id} = useParams();
   const [selectedCar, setSelectedCar] = useState([]);
+  const [newColor, setNewColor] = useState('');
+  const [newPrice, setNewPrice] = useState('');
+  const [newAvailable, setNewAvailable] = useState('');
+
+  const handleColor = (e) => {
+    setNewColor(e.target.value);
+  };
+  const handlePrice = (e) => {
+    setNewPrice(e.target.value);
+  };
+  const handleAvailable = (e) => {
+    setNewAvailable(e.target.value);
+  };
+  console.log(newColor);
+  console.log(newPrice);
+  console.log(newAvailable);
+
+  console.log(selectedCar)
 
   const fetchData = useCallback(async () => {
     try {
@@ -25,6 +42,30 @@ export const Edit = () => {
   }, [fetchData]);
 
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    if (newColor.trim() !== '' || newPrice.trim() !== '' || newAvailable.trim() !== '') {
+      axios
+        .put(`https://myfakeapi.com/api/cars/${id}`, {
+          car_color: newColor.trim() !== '' ? newColor : selectedCar.car_color,
+          price: newPrice.trim() !== '' ? newPrice : selectedCar.price,
+          availability: newAvailable.trim() !== '' ? newAvailable : selectedCar.availability,
+        })
+        .then(() => {
+          setSelectedCar((prevSelectedCar) => {
+            return {
+              ...prevSelectedCar,
+              car_color: newColor.trim() !== '' ? newColor : prevSelectedCar.car_color,
+              price: newPrice.trim() !== '' ? newPrice : prevSelectedCar.price,
+              availability: newAvailable.trim() !== '' ? newAvailable : prevSelectedCar.availability,
+            };
+          });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
 
   return (
       <div className='edit'>
@@ -35,7 +76,7 @@ export const Edit = () => {
         </Link>
 
         <div className='edit__form'>
-          <form  onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="company">Company:</label>
               <input type="text" id="company"
@@ -76,6 +117,7 @@ export const Edit = () => {
               <label htmlFor="color">Color:</label>
               <input type="text" id="color"
               defaultValue={selectedCar.car_color}
+              onChange={handleColor}
               placeholder="Enter color" />
             </div>
 
@@ -83,14 +125,16 @@ export const Edit = () => {
               <label htmlFor="price">Price:</label>
               <input type="text" id="price"
               defaultValue={selectedCar.price}
+              onChange={handlePrice}
               placeholder="Enter price" />
             </div>
 
             <div className="form-group">
-              <label htmlFor="available">Available:</label>
-              <input type="text" id="available"
-              defaultValue={selectedCar.availability}
-              placeholder="Enter available" />
+              <label htmlFor="availability">Availability:</label>
+              <select id="availability" defaultValue={selectedCar.availability} onChange={handleAvailable}>
+                <option value="false">false</option>
+                <option value="true">true</option>
+              </select>
             </div>
 
             <button type="submit">Save</button>

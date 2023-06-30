@@ -1,7 +1,4 @@
-import { useContext, useState } from 'react';
-
 import { useNavigate } from 'react-router';
-import { ActiveContext } from '../table/Table';
 import available from '../../photos/true.svg';
 import unAvailable from '../../photos/false.svg';
 

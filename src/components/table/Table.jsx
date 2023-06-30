@@ -1,7 +1,7 @@
 import { useState, useContext, createContext } from 'react';
 
 import { HomeContext } from '../../pages';
-import { Pagination, CarList, Edit } from '../../components';
+import { Pagination, CarList } from '../../components';
 import './table.scss';
 
 export const ActiveContext = createContext({});
