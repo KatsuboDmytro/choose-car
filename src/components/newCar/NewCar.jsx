@@ -1,12 +1,13 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { NavigateTo } from '../../components/index';
-import { ActionContext } from '../../components/table/Table';
+import { NavigateTo } from '../index';
+import { ActionContext } from '../table/Table';
 import './newCar.scss'
 
 export const NewCar = () => {
   const { isNewAdding, setIsNewAdding } = useContext(ActionContext);
+  const [availability, setAvailability] = useState(false);
   const { cars, setCars } = useContext(ActionContext);
   const {
     register,
@@ -18,17 +19,21 @@ export const NewCar = () => {
   const handleCloseModal = () => {
     setIsNewAdding(!isNewAdding);
   }
+  const handleAvailability = (e) => {
+    setAvailability(e.target.value === 'true');
+  };
   const onSubmit = (data) => {
     for (const key in data) {
       if (data[key] === '') {
         return false;
       }
       setIsNewAdding(!isNewAdding);
-      const updatedData = [...cars, data];
+      const updatedData = [...cars, {...data, id: cars.length + 1, availability: availability}];
       setCars(updatedData);
       localStorage.setItem('cars', JSON.stringify(updatedData));
+      console.log(data);
+      console.log(availability);
     }
-    console.log(data)
   }
 
   return (
@@ -82,10 +87,10 @@ export const NewCar = () => {
 
             <div className="form-group">
               <label htmlFor="availability">Availability:</label>
-              <select id="availability" {...register('availability')}>
+              <select id="availability" onChange={handleAvailability}>
                 <option value="">Choose option</option>
-                <option value={false}>false</option>
-                <option value={true}>true</option>
+                <option value={'false'}>False</option>
+                <option value={'true'}>True</option>
               </select>
             </div>
 

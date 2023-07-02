@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
-import { Input, NavigateTo } from '../../components';
-import { ActionContext } from '../../components/table/Table';
+
+import { Input, NavigateTo } from '..';
+import { ActionContext } from '../table/Table';
 import './edit.scss'
 
 export const Edit = () => {

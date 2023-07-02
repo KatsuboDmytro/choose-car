@@ -1,4 +1,3 @@
-import React from 'react';
 import './pagination.scss'
 
 export const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {

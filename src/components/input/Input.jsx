@@ -1,4 +1,3 @@
-import React from 'react'
 import './input.scss'
 
 export const Input = ({ labelB, labelS, defaultValue, changes, isDisabled }) => {
