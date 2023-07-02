@@ -11,19 +11,28 @@ export const Home = () => {
   const [cars, setCars] = useLocalStorage([], 'cars');
   const [isLoading, setIsLoading] = useState(false);
 
+  const responseData = async () => {
+    const response = await axios.get('https://myfakeapi.com/api/cars/');
+    setIsLoading(false);
+    setCars(response.data.cars);
+    localStorage.setItem('cars', JSON.stringify(response.data.cars));
+
+  }
+
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
       const storedData = localStorage.getItem('cars');
       if (storedData) {
         const parsedData = JSON.parse(storedData);
-        setCars(parsedData);
-        setIsLoading(false);
+        if (parsedData.length !== 0) {
+          setCars(parsedData);
+          setIsLoading(false);
+        } else {
+          responseData();
+        }
       } else {
-        const response = await axios.get('https://myfakeapi.com/api/cars/');
-        setIsLoading(false);
-        setCars(response.data.cars);
-        localStorage.setItem('cars', JSON.stringify(response.data.cars));
+        responseData();
       }
     } catch (error) {
       console.error(error);
@@ -41,3 +50,35 @@ export const Home = () => {
     </HomeContext.Provider>
   );
 };
+/*  const response = async () => {
+    const response = await axios.get('https://myfakeapi.com/api/cars/');
+    setIsLoading(false);
+    setCars(response.data.cars);
+    localStorage.setItem('cars', JSON.stringify(response.data.cars));
+
+  }
+
+  const fetchData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const storedData = localStorage.getItem('cars');
+      if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        if (parsedData.length === 0) {
+          response();
+        } else {
+          setCars(parsedData);
+          setIsLoading(false);
+        }
+      } else {
+        response();
+      }
+    } catch (error) {
+      console.error(error);
+      setIsLoading(false);
+    }
+  }, [setCars]);
+  
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]); */

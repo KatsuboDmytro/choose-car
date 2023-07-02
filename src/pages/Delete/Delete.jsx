@@ -1,56 +1,39 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-
+import { useContext, useState } from 'react';
 import { ActionContext } from '../../components/table/Table';
-import { HomeContext } from '../Home/Home';
 import './delete.scss';
 
 export const Delete = () => {
-  const { id } = useParams();
-  const [cars, setCars] = useState([]);
-  const [active, setActive] = useState(false);
-  const setToDelete = useContext(ActionContext);
-  //const navigate = useNavigate();
-  useEffect(() => {
-    const storedData = localStorage.getItem('cars');
+  const {cars, setCars, isDeleting, setIsDeleting, checkedItem} = useContext(ActionContext);
+  const [toDelete, setToDelete] = useState(false);
 
-    if (storedData) {
-      setCars(JSON.parse(storedData));
-    }
-  }, []);
+  const handlerCheckItWasDeleted = () => {
+    setIsDeleting(false);
+    setToDelete(false);
+  }
 
-  console.log(cars)
-
-  const handlerDelete = () => {
-    const updatedData = cars.filter((item) => item.id !== id);
+  const handlerCheckItNeedToBeDeleted = () => {
+    setToDelete(true);
+    const updatedData = cars.filter((item) => item.id !== checkedItem);
     setCars(updatedData);
     localStorage.setItem('cars', JSON.stringify(updatedData));
-  };
-
-  useEffect(() => {
-    handlerDelete();
-  }, []);
+  }
 
   return (
-    <div className="modal">
+    <div className={isDeleting ? "modal" : "modal-visible"}>
       <div className="modal-content">
-        {active ? (
+        {toDelete ? (
           <>
-            <p>Element successfully deleted 😐</p>
+            <p>Element successfully Deleting 😐</p>
             <div className="modal-buttons">
-              <Link to="/choose-car/">
-                <button className="cancel-button">Go back</button>
-              </Link>
+              <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Go back</button>
             </div>
           </>
         ) : (
           <>
             <p>Are you sure you want to delete this card?</p>
             <div className="modal-buttons">
-              <Link to="/choose-car/">
-                <button className="cancel-button">Cancel</button>
-              </Link>
-              <button className="delete-button" onClick={handlerDelete}>
+              <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Cancel</button>
+              <button className="delete-button" onClick={handlerCheckItNeedToBeDeleted}>
                 Delete
               </button>
             </div>
@@ -60,3 +43,49 @@ export const Delete = () => {
     </div>
   );
 };
+/*import { useContext, useState } from 'react';
+import { ActionContext } from '../../components/table/Table';
+import './delete.scss';
+
+export const Delete = () => {
+  const {cars, setCars, toDelete, setToDelete, isDeleting, setIsDeleting, checkedItem} = useContext(ActionContext);
+
+  const handlerCheckItWasDeleted = () => {
+    setIsDeleting(false);
+    setToDelete(false);
+  }
+
+  const handlerCheckItNeedToBeDeleted = () => {
+    setToDelete(true);
+    const updatedData = cars.filter((item) => item.id !== checkedItem);
+    setCars(updatedData);
+
+    localStorage.setItem('cars', JSON.stringify(updatedData));
+  }
+
+  return (
+    <div className={isDeleting ? "modal" : "modal-visible"}>
+      <div className="modal-content">
+        {toDelete ? (
+          <>
+            <p>Element successfully Deleting 😐</p>
+            <div className="modal-buttons">
+              <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Go back</button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p>Are you sure you want to delete this card?</p>
+            <div className="modal-buttons">
+              <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Cancel</button>
+              <button className="delete-button" onClick={handlerCheckItNeedToBeDeleted}>
+                Delete
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+ */

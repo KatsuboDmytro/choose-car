@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 
 import { NavigateTo } from '../../components/index';
 import { ActionContext } from '../../components/table/Table';
-import { HomeContext } from '../Home/Home';
 import './newCar.scss'
 
 export const NewCar = () => {
@@ -20,12 +19,15 @@ export const NewCar = () => {
     setIsNewAdding(!isNewAdding);
   }
   const onSubmit = (data) => {
-    setIsNewAdding(!isNewAdding);
-    
-    const updatedData = [...cars, data];
-    setCars(updatedData);
-    localStorage.setItem('cars', JSON.stringify(updatedData));
-
+    for (const key in data) {
+      if (data[key] === '') {
+        return false;
+      }
+      setIsNewAdding(!isNewAdding);
+      const updatedData = [...cars, data];
+      setCars(updatedData);
+      localStorage.setItem('cars', JSON.stringify(updatedData));
+    }
     console.log(data)
   }
 

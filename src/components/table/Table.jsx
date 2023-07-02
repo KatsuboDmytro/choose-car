@@ -1,7 +1,7 @@
 import { useState, useContext, createContext, useEffect } from 'react';
 
 import { Pagination, CarList, AddNewCar } from '../../components';
-import { Edit, HomeContext, NewCar } from '../../pages';
+import { Delete, Edit, HomeContext, NewCar } from '../../pages';
 import './table.scss';
 
 export const ActionContext = createContext([]);
@@ -15,8 +15,7 @@ export const Table = () => {
 
   const [findValue, setFindValue] = useState('');
 
-  const [isDeleted, setIsDeleted] = useState(false);
-  const [toDelete, setToDelete] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const [isEditing, setIsEditing] = useState(false);
   
@@ -30,16 +29,6 @@ export const Table = () => {
     event.preventDefault();
     setFindValue(event.target.value)
   }
-  const handlerCheckItWasDeleted = () => {
-    setToDelete(false);
-    setIsDeleted(false);
-  }
-  const handlerCheckItNeedToBeDeleted = () => {
-    setIsDeleted(true);
-    const updatedData = cars.filter((item) => item.id !== checkedItem);
-    setCars(updatedData);
-    localStorage.setItem('cars', JSON.stringify(updatedData));
-  }
   console.log(cars)
 
   useEffect(() => {
@@ -50,33 +39,8 @@ export const Table = () => {
   }, []);
 
   return (
-    <ActionContext.Provider value={{cars, setCars, setToDelete, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
+    <ActionContext.Provider value={{cars, setCars, isDeleting, setIsDeleting, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
     isEditing, setIsEditing}}>
-      <div className={toDelete ? "modal" : "modal-visible"}>
-        <div className="modal-content">
-          {isDeleted ? (
-            <>
-              <p>Element successfully deleted 😐</p>
-              <div className="modal-buttons">
-                <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Go back</button>
-              </div>
-            </>
-          ) : (
-            <>
-              <p>Are you sure you want to delete this card?</p>
-              <div className="modal-buttons">
-                <button className="cancel-button" onClick={handlerCheckItWasDeleted}>Cancel</button>
-                <button className="delete-button" onClick={handlerCheckItNeedToBeDeleted}>
-                  Delete
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-
-      { isEditing ? <Edit /> : <></> }
-
       <div className="search">
         <input type="text" value={findValue} onChange={handlerInput} placeholder="Find the car" />
         <button type="button">
@@ -113,12 +77,14 @@ export const Table = () => {
         </tbody>
       </table>
 
-      <Pagination 
+      <Pagination
         totalPosts={cars.length}
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}/>
 
+      { isDeleting ? <Delete /> : <></> }
+      { isEditing ? <Edit /> : <></> }
       { isNewAdding ? <NewCar /> : <AddNewCar /> }
     </ActionContext.Provider>
   );

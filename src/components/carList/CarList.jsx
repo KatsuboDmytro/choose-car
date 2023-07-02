@@ -4,14 +4,14 @@ import unAvailable from '../../photos/false.svg';
 import { ActionContext } from '../table/Table';
 
 export const CarList = ({ car }) => {
-  const { setToDelete, setCheckedItem, setIsEditing } = useContext(ActionContext);
+  const { setIsDeleting, setCheckedItem, setIsEditing } = useContext(ActionContext);
 
   const changeCondition = (event) => {
     if (event.target.value === 'edit') {
       setIsEditing(true);
     }
     if (event.target.value === 'delete') {
-      setToDelete(true);
+      setIsDeleting(true);
     }
     setCheckedItem(car.id);
     console.log(car.id);
