@@ -1,8 +1,81 @@
-import React from 'react'
+import { useContext } from 'react';
+import { NavigateTo } from '../../components/index';
+import { ActionContext } from '../../components/table/Table';
 import './newCar.scss'
 
 export const NewCar = () => {
+  const { isNewAdding, setIsNewAdding } = useContext(ActionContext);
+
+  const handleCloseModal = () => {
+    setIsNewAdding(!isNewAdding);
+  }
+  const handleSubmit = () => {
+    setIsNewAdding(!isNewAdding);
+  }
+
   return (
-    <div>NewCar</div>
+      <div className={isNewAdding ? "edit" : "edit-visible"}>
+        <div className='edit__modal'>
+        <NavigateTo onClick={handleCloseModal} title={'Create new car'}/>
+
+        <div className='edit__form'>
+          <form> 
+            <div className="form-group">
+              <label htmlFor="company">Company:</label>
+              <input type="text" id="company"
+              //defaultValue={selectedCar.car}
+              placeholder="Enter company"/>
+            </div>
+            
+            <div className="form-group">
+              <label htmlFor="model">Model:</label>
+              <input type="text" id="model"
+              //defaultValue={selectedCar.car_model}
+              placeholder="Enter model" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="vin">VIN:</label>
+              <input type="number" id="vin"
+              //defaultValue={selectedCar.car_vin}
+              placeholder="Enter vin" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="year">Year:</label>
+              <input type="number" id="year"
+              //defaultValue={selectedCar.car_model_year}
+              placeholder="Enter year" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="color">Color:</label>
+              <input type="text" id="color"
+              //defaultValue={selectedCar.car_color}
+              //onChange={handleColor}
+              placeholder="Enter color" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="price">Price:</label>
+              <input type="text" id="price"
+              //defaultValue={selectedCar.price}
+              //onChange={handlePrice}
+              placeholder="Enter price" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="availability">Availability:</label>
+              <select id="availability" /*defaultValue={selectedCar.availability} onChange={handleAvailable}*/>
+                <option value={false}>false</option>
+                <option value={true}>true</option>
+              </select>
+            </div>
+
+            <button type="submit" onClick={handleSubmit}>Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
   )
 }

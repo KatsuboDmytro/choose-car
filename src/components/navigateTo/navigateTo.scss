@@ -1,0 +1,13 @@
+.navigate{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  width: 60%;
+  font-family: sans-serif;
+
+
+  &__image{
+    cursor: pointer;
+  }
+
+}

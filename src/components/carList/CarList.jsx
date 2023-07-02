@@ -1,14 +1,20 @@
-import { useNavigate } from 'react-router';
+import { useContext } from 'react';
 import available from '../../photos/true.svg';
 import unAvailable from '../../photos/false.svg';
+import { ActionContext } from '../table/Table';
 
 export const CarList = ({ car }) => {
-  const navigate = useNavigate();
+  const { setToDelete, setCheckedItem, setToEdit, setIsEditing } = useContext(ActionContext);
 
   const changeCondition = (event) => {
-    if(event.target.value === 'edit'){
-      navigate(`/choose-car/${car.id}`);
+    if (event.target.value === 'edit') {
+      setIsEditing(true);
     }
+    if (event.target.value === 'delete') {
+      setToDelete(true);
+    }
+    setCheckedItem(car.id);
+    console.log(car.id);
   };
 
   return (
@@ -28,8 +34,8 @@ export const CarList = ({ car }) => {
       </td>
       <td>
         <div className="dropdown">
-          <select onChange={changeCondition}>
-            <option value="choice">Choice...</option>
+          <select value="" onChange={changeCondition}>
+            <option value="">Choice...</option>
             <option value="edit">Edit</option>
             <option value="delete">Delete</option>
           </select>
