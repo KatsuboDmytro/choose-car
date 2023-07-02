@@ -18,7 +18,6 @@ export const Table = () => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [toDelete, setToDelete] = useState(false);
 
-  const [toEdit, setToEdit] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   
   const [isNewAdding, setIsNewAdding] = useState(false);
@@ -52,7 +51,7 @@ export const Table = () => {
 
   return (
     <ActionContext.Provider value={{cars, setCars, setToDelete, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
-    isEditing, setIsEditing, setToEdit}}>
+    isEditing, setIsEditing}}>
       <div className={toDelete ? "modal" : "modal-visible"}>
         <div className="modal-content">
           {isDeleted ? (

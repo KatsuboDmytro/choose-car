@@ -99,7 +99,7 @@ export const Edit = () => {
             />
             <div className="form-group">
               <label htmlFor="availability">Availability:</label>
-              <select id="availability" value='' onChange={handleAvailable}>
+              <select id="availability" onChange={handleAvailable}>
                 <option value=''>Choose option</option>
                 <option value={false}>false</option>
                 <option value={true}>true</option>
