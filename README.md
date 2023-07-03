@@ -1,70 +1,19 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# AutoCar
+First, you can see the main screen where all the machines are displayed in a table.
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/82e14732-0aa8-459d-95b1-d0d2a4c47d7b)
+# Basic functionality
+The search is carried out by the entire array of cars, for example, we will find all BMWs.
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/2dcafaa8-67b0-469d-9a14-4f8e23ac7964)
+Deleting car:
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/4b7267a3-4a1a-4dde-bea9-7c4acb89ae6b)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/3c4c4aee-b49c-4fa7-9022-cfc5b40f5e33)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/7e5f97fd-0b7c-45a4-b383-1abaa3a0966b)
+Editing info about the car:
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/3d5ceb15-69bb-43cd-b237-b42b1e4cc224)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/d9b5ace1-5168-437b-b8fd-ba5d1a0da957)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/51c19c92-db5a-4787-b45d-f591014b00c9)
+Create the new car:
+To create the new one you must click on this plus at the right bottom of the screen. To see the new car you must be on the last page.
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/0265652e-3c29-405e-9ff1-dfdcf54f1097)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/0f4857c8-dc99-4f82-87ad-6fae135d24ea)
+![image](https://github.com/KatsuboDmytro/choose-car/assets/103748028/d656ef3a-9d3a-4e6e-9caa-c3ddcf47a41b)
