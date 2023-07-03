@@ -30,9 +30,9 @@ export const Table = () => {
   return (
     <ActionContext.Provider value={{cars, setCars, isDeleting, setIsDeleting, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
     isEditing, setIsEditing}}>
-      <div className="home">
+      
         <Find findValue={findValue} setFindValue={setFindValue}/>
-
+        <div className="home">
         <table className="styled-table">
           <thead>
             <tr>
@@ -60,16 +60,17 @@ export const Table = () => {
           </tbody>
         </table>
 
-        <Pagination
-          totalPosts={cars.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}/>
+        
 
         { isDeleting ? <Delete /> : <></> }
         { isEditing ? <Edit /> : <></> }
         { isDeleting || isEditing ? <></> : (isNewAdding ? <NewCar /> : <AddNewCar />) }
       </div>
+      <Pagination
+          totalPosts={cars.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}/>
     </ActionContext.Provider>
   );
 };

@@ -1,19 +1,16 @@
-.search{
-  margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  input{
-    width: 100%;
-    padding: 10px 585px 10px 10px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
-  button{
-    border: none;
-    background-color: #009879;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    width: 6.5%;
-  }
+@import "../../mixins/flex";
 
+.search{
+  margin: 50px auto 25px;
+  @include flex-all-center;
+
+  input{
+    width: 70%;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  svg{
+    position: relative;
+    right: 30px;
+  }
 }

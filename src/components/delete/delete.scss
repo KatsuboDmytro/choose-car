@@ -1,3 +1,6 @@
+@import "../../mixins/flex";
+@import "../../mixins/vars";
+
 .modal {
   position: fixed;
   top: 0;
@@ -5,21 +8,17 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
+  @include flex-all-center;
 
   &-visible{
     display: none;
   }
   &-buttons {
-    display: flex;
-    justify-content: space-between;
+    @include flex-all-sb;
   }
   &-content {
-    background-color: #fff;
     padding: 20px;
+    background-color: $white;
     border-radius: 5px;
 
     p {
@@ -28,12 +27,12 @@
   }
 
   .cancel-button {
-    background-color: #ccc;
-    color: #000;
+    background-color: $grey;
+    color: $black;
   }
 
   .delete-button {
-    background-color: #f44336;
-    color: #fff;
+    background-color: $red;
+    color: $white;
   }
 }

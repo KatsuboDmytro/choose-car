@@ -1,9 +1,9 @@
+@import "../../mixins/flex";
+
 .navigate{
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  @include flex-all-sb;
   width: 60%;
-  font-family: sans-serif;
+  flex-wrap: wrap;
 
   &__image{
     cursor: pointer;

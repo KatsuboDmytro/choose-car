@@ -1,24 +1,26 @@
+@import "../../mixins/vars";
+
 .pagination {
-  display: grid;
-  grid-template-columns: repeat(21, 40px);
-  gap: 11px;
-  margin: 2rem 0rem;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 2rem auto;
 
   button {
-    height: 40px;
+    width: 30px;
     padding: 5px;
-    font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
-    color: #009879;
+    color: $green;
     border-radius: 6px;
-    border: solid 2px #009879;
-    background: #fff;
+    border: solid 2px $green;
+    background: $white;
     cursor: pointer;
     transition: all 0.3s ease;
   }
 }
 #active {
-  background: #009879;
-  color: #fff;
+  background: $green;
+  color: $white;
 }
