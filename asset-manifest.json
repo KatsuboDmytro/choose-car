@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/choose-car/static/css/main.073c9b0a.css",
-    "main.js": "/choose-car/static/js/main.7ace6839.js",
-    "static/js/787.9dabf43d.chunk.js": "/choose-car/static/js/787.9dabf43d.chunk.js",
-    "static/media/logo.svg": "/choose-car/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/choose-car/static/css/main.cd3fb9cb.css",
+    "main.js": "/choose-car/static/js/main.11cb6ad4.js",
+    "static/media/back.svg": "/choose-car/static/media/back.d4f47f7eb678d304741c0d22ae590df5.svg",
+    "static/media/new.svg": "/choose-car/static/media/new.4d66c1787e9687797daef24e4156cfb9.svg",
+    "static/media/true.svg": "/choose-car/static/media/true.be990e57b2fa186b6ba7fd6949ea4a2e.svg",
+    "static/media/false.svg": "/choose-car/static/media/false.4b6d1265fd57b6c00997ae7943a637dc.svg",
     "index.html": "/choose-car/index.html",
-    "main.073c9b0a.css.map": "/choose-car/static/css/main.073c9b0a.css.map",
-    "main.7ace6839.js.map": "/choose-car/static/js/main.7ace6839.js.map",
-    "787.9dabf43d.chunk.js.map": "/choose-car/static/js/787.9dabf43d.chunk.js.map"
+    "main.cd3fb9cb.css.map": "/choose-car/static/css/main.cd3fb9cb.css.map",
+    "main.11cb6ad4.js.map": "/choose-car/static/js/main.11cb6ad4.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.7ace6839.js"
+    "static/css/main.cd3fb9cb.css",
+    "static/js/main.11cb6ad4.js"
   ]
 }
