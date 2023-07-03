@@ -29,8 +29,6 @@ export const NewCar = () => {
       const updatedData = [...cars, {...data, id: cars.length + 1, availability: availability}];
       setCars(updatedData);
       localStorage.setItem('cars', JSON.stringify(updatedData));
-      console.log(data);
-      console.log(availability);
     }
   }
 

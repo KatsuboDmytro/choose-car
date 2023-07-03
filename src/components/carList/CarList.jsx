@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import available from '../../photos/true.svg';
-import unAvailable from '../../photos/false.svg';
+import available from '../../assets/true.svg';
+import unAvailable from '../../assets/false.svg';
 import { ActionContext } from '../table/Table';
 
 export const CarList = ({ car }) => {
@@ -14,7 +14,6 @@ export const CarList = ({ car }) => {
       setIsDeleting(true);
     }
     setCheckedItem(car.id);
-    console.log(car.id);
   };
 
   return (

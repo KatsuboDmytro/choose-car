@@ -25,8 +25,6 @@ export const Table = () => {
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = cars.slice(firstPostIndex, lastPostIndex);
 
-  console.log(cars)
-
   return (
     <ActionContext.Provider value={{cars, setCars, isDeleting, setIsDeleting, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
     isEditing, setIsEditing}}>

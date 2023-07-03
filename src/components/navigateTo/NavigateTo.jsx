@@ -1,4 +1,4 @@
-import back from '../../photos/back.svg'
+import back from '../../assets/back.svg'
 import './navigateTo.scss'
 
 export const NavigateTo = ({ onClick, title }) => {

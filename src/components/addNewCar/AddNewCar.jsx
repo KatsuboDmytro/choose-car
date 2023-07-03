@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
 import { ActionContext } from '../table/Table';
-import newP from '../../photos/new.svg';
+import newP from '../../assets/new.svg';
 import './addNewCar.scss'
 
 export const AddNewCar = () => {
