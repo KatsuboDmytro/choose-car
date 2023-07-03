@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useActionContext } from '../../hooks/useActionContext';
 import { NavigateTo } from '../index';
-import { ActionContext } from '../table/Table';
 
 export const NewCar = () => {
-  const { isNewAdding, setIsNewAdding } = useContext(ActionContext);
+  const { cars, setCars, isNewAdding, setIsNewAdding } = useActionContext();
   const [availability, setAvailability] = useState(false);
-  const { cars, setCars } = useContext(ActionContext);
+
   const {
     register,
     handleSubmit,

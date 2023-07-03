@@ -1,11 +1,9 @@
-import { useContext } from 'react'
-
-import { ActionContext } from '../table/Table';
+import { useActionContext } from '../../hooks/useActionContext';
 import newP from '../../assets/new.svg';
 import './addNewCar.scss'
 
 export const AddNewCar = () => {
-  const { isNewAdding, setIsNewAdding } = useContext(ActionContext);
+  const { isNewAdding, setIsNewAdding } = useActionContext();
 
   const handleNewCar = () => {
     setIsNewAdding(!isNewAdding)

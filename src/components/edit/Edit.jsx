@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { useActionContext } from '../../hooks/useActionContext';
 import { Input, NavigateTo } from '../index';
-import { ActionContext } from '../table/Table';
 import './edit.scss'
 
 export const Edit = () => {
@@ -9,7 +8,7 @@ export const Edit = () => {
   const [newColor, setNewColor] = useState('');
   const [newPrice, setNewPrice] = useState('');
   const [newAvailable, setNewAvailable] = useState('');
-  const {cars, setCars, isEditing, setIsEditing, checkedItem} = useContext(ActionContext);
+  const {cars, setCars, isEditing, setIsEditing, checkedItem} = useActionContext();
 
   const handleColor = (e) => {
     setNewColor(e.target.value);

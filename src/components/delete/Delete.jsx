@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react';
-import { ActionContext } from '../table/Table';
+import { useState } from 'react';
+import { useActionContext } from '../../hooks/useActionContext';
 import './delete.scss';
 
 export const Delete = () => {
-  const {cars, setCars, isDeleting, setIsDeleting, checkedItem} = useContext(ActionContext);
+  const {cars, setCars, isDeleting, setIsDeleting, checkedItem} = useActionContext();
   const [toDelete, setToDelete] = useState(false);
 
   const handlerCheckItWasDeleted = () => {

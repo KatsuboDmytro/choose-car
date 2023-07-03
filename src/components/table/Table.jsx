@@ -1,13 +1,13 @@
-import { useState, useContext, createContext } from 'react';
+import { useState, createContext } from 'react';
 
 import { Pagination, CarList, AddNewCar, Find, Delete, Edit, NewCar } from '../../components';
-import { HomeContext } from '../../pages';
+import { useCarsContext } from '../../hooks/useCarsContext';
 import './table.scss';
 
 export const ActionContext = createContext([]);
 
 export const Table = () => {
-  const {cars, setCars} = useContext(HomeContext);
+  const {cars, setCars} = useCarsContext();
   const [checkedItem, setCheckedItem] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,10 +58,8 @@ export const Table = () => {
           </tbody>
         </table>
 
-        
-
-        { isDeleting ? <Delete /> : <></> }
-        { isEditing ? <Edit /> : <></> }
+        { isDeleting && <Delete /> }
+        { isEditing && <Edit /> }
         { isDeleting || isEditing ? <></> : (isNewAdding ? <NewCar /> : <AddNewCar />) }
       </div>
       <Pagination

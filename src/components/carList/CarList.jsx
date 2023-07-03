@@ -1,10 +1,9 @@
-import { useContext } from 'react';
+import { useActionContext } from '../../hooks/useActionContext';
 import available from '../../assets/true.svg';
 import unAvailable from '../../assets/false.svg';
-import { ActionContext } from '../table/Table';
 
 export const CarList = ({ car }) => {
-  const { setIsDeleting, setCheckedItem, setIsEditing } = useContext(ActionContext);
+  const { setIsDeleting, setCheckedItem, setIsEditing } = useActionContext();
 
   const changeCondition = (event) => {
     if (event.target.value === 'edit') {
