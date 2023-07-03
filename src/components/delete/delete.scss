@@ -13,7 +13,10 @@
   &-visible{
     display: none;
   }
-
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
   &-content {
     background-color: #fff;
     padding: 20px;
@@ -21,15 +24,6 @@
 
     p {
       margin-bottom: 20px;
-    }
-
-    &-buttons {
-      display: flex;
-      justify-content: flex-end;
-
-      button {
-        margin-left: 10px;
-      }
     }
   }
 

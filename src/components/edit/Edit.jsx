@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 
-import { Input, NavigateTo } from '..';
+import { Input, NavigateTo } from '../index';
 import { ActionContext } from '../table/Table';
 import './edit.scss'
 

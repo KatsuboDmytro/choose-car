@@ -30,44 +30,46 @@ export const Table = () => {
   return (
     <ActionContext.Provider value={{cars, setCars, isDeleting, setIsDeleting, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
     isEditing, setIsEditing}}>
-      <Find findValue={findValue} setFindValue={setFindValue}/>
+      <div className="home">
+        <Find findValue={findValue} setFindValue={setFindValue}/>
 
-      <table className="styled-table">
-        <thead>
-          <tr>
-            <th>Company</th>
-            <th>Model</th>
-            <th>VIN</th>
-            <th>Color</th>
-            <th>Year</th>
-            <th>Price</th>
-            <th>Availability</th>
-            <th>Actions columns</th>
-          </tr>
-        </thead>
+        <table className="styled-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Model</th>
+              <th>VIN</th>
+              <th>Color</th>
+              <th>Year</th>
+              <th>Price</th>
+              <th>Availability</th>
+              <th>Actions columns</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {findValue !== ''
-            ? cars
-              .filter((car) =>
-                Object.values(car).some((value) =>
-                  value.toString().toLowerCase().includes(findValue.toLowerCase())
+          <tbody>
+            {findValue !== ''
+              ? cars
+                .filter((car) =>
+                  Object.values(car).some((value) =>
+                    value.toString().toLowerCase().includes(findValue.toLowerCase())
+                  )
                 )
-              )
-              .map((car) => <CarList key={car.id} car={car} />)
-            : currentPosts.map((car) => <CarList key={car.id} car={car} />)}
-        </tbody>
-      </table>
+                .map((car) => <CarList key={car.id} car={car} />)
+              : currentPosts.map((car) => <CarList key={car.id} car={car} />)}
+          </tbody>
+        </table>
 
-      <Pagination
-        totalPosts={cars.length}
-        postsPerPage={postsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}/>
+        <Pagination
+          totalPosts={cars.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}/>
 
-      { isDeleting ? <Delete /> : <></> }
-      { isEditing ? <Edit /> : <></> }
-      { isNewAdding ? <NewCar /> : <AddNewCar /> }
+        { isDeleting ? <Delete /> : <></> }
+        { isEditing ? <Edit /> : <></> }
+        { isDeleting || isEditing ? <></> : (isNewAdding ? <NewCar /> : <AddNewCar />) }
+      </div>
     </ActionContext.Provider>
   );
 };

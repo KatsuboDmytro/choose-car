@@ -1,9 +1,7 @@
 import { useEffect, useState, createContext, useCallback } from 'react';
 import axios from 'axios';
-
 import { Loader, Table } from '../../components/index';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import './home.scss';
 
 export const HomeContext = createContext([]);
 

@@ -1,23 +1,21 @@
 .pagination {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(21, 40px);
+  gap: 11px;
+  margin: 2rem 0rem;
 
   button {
-    width: 40px;
     height: 40px;
+    padding: 5px;
     font-family: sans-serif;
     font-weight: 600;
     font-size: 16px;
-    margin: 0 10px;
+    color: #009879;
     border-radius: 6px;
+    border: solid 2px #009879;
+    background: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: #fff;
-    color: #009879;
-    border: solid 2px #009879;
   }
 }
 #active {

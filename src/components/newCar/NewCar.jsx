@@ -1,9 +1,7 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-
 import { NavigateTo } from '../index';
 import { ActionContext } from '../table/Table';
-import './newCar.scss'
 
 export const NewCar = () => {
   const { isNewAdding, setIsNewAdding } = useContext(ActionContext);

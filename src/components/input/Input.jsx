@@ -1,5 +1,3 @@
-import './input.scss'
-
 export const Input = ({ labelB, labelS, defaultValue, changes, isDisabled }) => {
   return (
     <div className="form-group">
