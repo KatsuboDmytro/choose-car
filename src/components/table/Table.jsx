@@ -10,7 +10,7 @@ export const Table = () => {
   const {cars, setCars} = useCarsContext();
   const [checkedItem, setCheckedItem] = useState(null);
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(null);
   const [postsPerPage, setPostsPerPage] = useState(50);
 
   const [findValue, setFindValue] = useState('');
@@ -27,7 +27,7 @@ export const Table = () => {
 
   return (
     <ActionContext.Provider value={{cars, setCars, isDeleting, setIsDeleting, checkedItem, setCheckedItem, isNewAdding, setIsNewAdding, 
-    isEditing, setIsEditing}}>
+    isEditing, setIsEditing, currentPage, setCurrentPage}}>
       
         <Find findValue={findValue} setFindValue={setFindValue}/>
         <div className="home">
@@ -64,9 +64,7 @@ export const Table = () => {
       </div>
       <Pagination
           totalPosts={cars.length}
-          postsPerPage={postsPerPage}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}/>
+          postsPerPage={postsPerPage} />
     </ActionContext.Provider>
   );
 };
